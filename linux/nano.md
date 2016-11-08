@@ -11,3 +11,5 @@
 | 跳行    | Ctrl+Shift+- | |
 | 查找    | Ctrl+w |       |
 | 导入    | Ctrl+r |       |
+| 写入    | Ctrl+o |       |
+| 退出    | Ctrl+x |       |
