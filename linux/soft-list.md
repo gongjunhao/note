@@ -18,7 +18,7 @@
 
 ---
 PhpStorm/IntelliJ IDEA不支持中文输入修复：
-```
+```shell
 #编辑启动文件（*.sh）,添加如下代码：
 XMODIFIERS="@im=fcitx"
 export XMODIFIERS
