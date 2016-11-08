@@ -16,8 +16,10 @@
 
 * [PhpStorm](https://www.jetbrains.com/phpstorm/?fromMenu)
 
-* PhpStorm/IntelliJ IDEA不支持中文输入修复：
+---
+PhpStorm/IntelliJ IDEA不支持中文输入修复：
 ```
+#编辑启动文件（*.sh）,添加如下代码：
 XMODIFIERS="@im=fcitx"
 export XMODIFIERS
 ```
