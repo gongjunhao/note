@@ -8,7 +8,8 @@ package com.gjh6.java.review.designpattern.singleton;
 public class LazySingleton {
 
     //静态初始化实例为null
-    private static LazySingleton instance = null;
+    //被volatile修饰的变量，它会保证修改的值会立即被更新到主存，当有其他线程需要读取时，它会去内存中读取新值，否则会出现指令重排导致多实例产生
+    private static volatile LazySingleton instance = null;
 
     //私有化构造函数
     private LazySingleton() {
