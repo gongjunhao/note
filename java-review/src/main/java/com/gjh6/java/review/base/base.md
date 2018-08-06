@@ -40,7 +40,14 @@
     *  enum 的全称为 enumeration， 是 JDK 1.5  中引入的新特性，存放在 java.lang 包中。
     *  enum 是一个普通的 class， 可以定义一些属性和方法
     *  enum 不能使用 extends 关键字继承其他类，因为 enum 已经继承了 java.lang.Enum（java是单一继承）
+    
 * final
+    * 当用final修饰一个类时，表明这个类不能被继承
+    * 当用final修饰方法时，方法被锁定，以防任何继承类修改它的含义
+    * 类的private方法会隐式地被指定为final方法
+    * 对于一个final变量，如果是基本数据类型的变量，则其数值一旦在初始化之后便不能更改；如果是引用类型的变量，则在对其初始化之后便不能再让其指向另一个对象。
+    * 被final修饰的变量，会被当做编译器常量，在使用到此变量的地方会直接将变量替换为它的值，编译到class中，不需要动态链接
+    
 * finally
 * instanceof
 * native
