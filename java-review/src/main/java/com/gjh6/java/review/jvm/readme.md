@@ -123,6 +123,25 @@
 -XX:InitialCodeCacheSize |jvm内置|设置代码缓存初始大小 用来存储已编译方法生成的本地代码
 -XX:ReservedCodeCacheSize|jvm内置|设置保留代码缓存大小 保留已编译的本地代码大小 谨慎自定义，如果空间过小会导致jvm切换到interpreted-only模式，JIT编译器被停用，性能运行速度会降低一个数量级
 -XX:+UseCodeCacheFlushing |+|避免当代码缓存被填满的时候JVM切换到interpreted-only 模式。当代码缓存被填满时让JVM放弃一些编译代码
+-XX:NewRatio | jvm内置 | 年轻代(包括Eden和两个Survivor区)与年老代的比值(除去持久代) 	-XX:NewRatio=4表示年轻代与年老代所占比值为1:4,年轻代占整个堆栈的1/5 如果Xms=Xmx并且设置了Xmn的情况下，该参数不需要进行设置。
+-XX:SurvivorRatio | 8 |Eden区与Survivor区的大小比值 设置为8,则两个Survivor区与一个Eden区的比值为2:8,一个Survivor区占整个年轻代的1/10
+
+------
+
+### 调优实战
+1.GC日志指令: -XX:+PrintGCTimeStamps -XX:+PrintGCDetails -Xloggc:<filename>GC日志是收集调优所需信息的最好途径，即便是在生产环境，也可以开启GC日志来定位问题，开启GC日志对性能的影响极小，却可以提供丰富数据。
+2.jmap -histo:live pid (监控工具强制调用GC一次)
+
+* 其他堆空间的分配，基于以下规则来进行。
+
+空间 | 命令参数| 建议扩大倍数
+---|-----|-----
+java heap | -Xms和-Xmx | 3-4倍FullGC后的老年代空间占用
+永久代| -XX:PermSize -XX:MaxPermSize | 1.2-1.5倍FullGc后的永久带空间占用
+新生代| -Xmn |1-1.5倍FullGC之后的老年代空间占用
+老年代| | 2-3倍FullGC后的老年代空间占用
+
+
 
 
 
