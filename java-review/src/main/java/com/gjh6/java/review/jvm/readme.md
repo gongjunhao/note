@@ -128,7 +128,7 @@
 
 ------
 
-### 调优实战
+### 调优技巧
 1. GC日志指令: -XX:+PrintGCTimeStamps -XX:+PrintGCDetails -Xloggc:<filename>GC日志是收集调优所需信息的最好途径，即便是在生产环境，也可以开启GC日志来定位问题，开启GC日志对性能的影响极小，却可以提供丰富数据。
 2. jmap -histo:live pid (监控工具强制调用GC一次)
 
