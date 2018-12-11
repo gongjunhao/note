@@ -1,5 +1,9 @@
 package com.gjh6.java.review.jvm;
 
+import javassist.CannotCompileException;
+import javassist.ClassPool;
+import javassist.CtClass;
+
 import java.nio.ByteBuffer;
 import java.util.ArrayList;
 import java.util.List;
@@ -16,12 +20,48 @@ public class JVMTest {
     // 每次内存分配大小
     private static int _1M =1024*1024;
 
+    //静态变量 初始化
+    private static String base = "hello";
+
+    //静态变量 初始化
+    static ClassPool cp = ClassPool.getDefault();
+
     // main
     public static void main(String[] args) {
         testDirectM();
         //directMemoryOut();  //直接内存溢出
         //stackOut();         //栈溢出
         //headOut();          //堆溢出
+        //permGenOut();       //永久代溢出
+        metaSpaceOut();
+
+    }
+
+    public static void metaSpaceOut() {
+        for (int i = 0; ; i++) {
+            CtClass ctClass = cp.makeClass("Test" + i);
+            try {
+                ctClass.toClass();
+            } catch (CannotCompileException e) {
+                e.printStackTrace();
+            }
+        }
+
+    }
+
+    /**
+     * JDK 1.6下，会出现“PermGen Space”的内存溢出
+     * JDK 1.7和 JDK 1.8 中，会出现堆内存溢出
+     * JDK 1.8中 PermSize 和 MaxPermGen 已经无效,HotSpot jdk1.8 已经没有 “PermGen space”这个区间了，取而代之是一个叫做 Metaspace（元空间）
+     *
+     */
+    public static void permGenOut() {
+        List<String> list = new ArrayList<>();
+        for (int i=0;i< Integer.MAX_VALUE;i++){
+            String str = base + base;
+            base = str;
+            list.add(str.intern());
+        }
     }
 
     /**
