@@ -44,6 +44,30 @@ public class Test {
         }
     }
 
+//    /**
+//     * 快速排序
+//     * @return
+//     */
+//    public static int[] quickSort1(int[] arr, int start, int end) {
+//        int baseNum = arr[start];
+//        int position = start;
+//        if(arr!= null && arr.length > 1) {
+//            for(int i=end; i> start+1; i--) {
+//                if(baseNum > arr[i]) {
+//                    arr[position] = arr[i];
+//                    arr[i] = baseNum;
+//                    position = i;
+//                }
+//            }
+//            if(position+1 < end) {
+//                quickSort1(arr, start, position-1);
+//                quickSort1(arr, position+1, end);
+//            }
+//            return arr;
+//        } else {
+//            return arr;
+//        }
+//    }
 
     /**
      * 快速排序
