@@ -1,5 +1,6 @@
 package com.gjh6.java.review.base.string;
 
+import java.io.File;
 import java.lang.management.ManagementFactory;
 import java.lang.management.MemoryMXBean;
 import java.lang.management.MemoryUsage;
@@ -55,6 +56,7 @@ public class StringTest {
         System.out.println("空闲内存量:" + j + "Mb");
         long k = Runtime.getRuntime().maxMemory()/1024/1024;
         System.out.println("最大可用内存量:" + k + "Mb");
+
 
     }
 }
