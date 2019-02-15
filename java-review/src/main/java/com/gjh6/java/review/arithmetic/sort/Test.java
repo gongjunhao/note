@@ -18,9 +18,10 @@ public class Test {
         for(int i=0; i<10; i++) {
             arr[i] = random.nextInt(100);
         }
-        //bubbleSort(arr);
         System.out.println(Arrays.toString(arr));
-        quickSort(arr, 0, 9);
+        //bubbleSort(arr);
+        //quickSort(arr, 0, 9);
+        selectSort(arr);
         System.out.println(Arrays.toString(arr));
     }
 
@@ -99,6 +100,30 @@ public class Test {
             src[i] = key;
             quickSort(src, begin, i - 1);
             quickSort(src, i + 1, end);
+        }
+    }
+
+
+    /**
+     * 选择排序
+     * @param arr
+     */
+    private static void selectSort(int[] arr) {
+        int length = arr.length;
+        for(int i=0; i<length; i++) {
+            int min = arr[i];
+            int minIndex = i;
+            for(int j=i+1; j<length; j++) {
+                if(min > arr[j]) {
+                    min = arr[j];
+                    minIndex = j;
+                }
+            }
+            if(i < minIndex) {
+                int temp = arr[i];
+                arr[i] = arr[minIndex];
+                arr[minIndex] = temp;
+            }
         }
     }
 }
