@@ -30,5 +30,8 @@ public class Test {
         }
         proxy1.victory();
 
+        CglibTest cglibTest = new CglibTest(singer);
+        Singer singer1 = (Singer)cglibTest.createObject();
+        singer1.victory();
     }
 }
