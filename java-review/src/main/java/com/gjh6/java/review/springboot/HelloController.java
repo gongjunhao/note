@@ -25,10 +25,10 @@ public class HelloController {
         int i=1;
         Thread.sleep(3000);
         i++;
-        System.out.println("1");
-        System.out.println("2");
+        System.out.println(i);
         arrivalDate  = LocalDateTime.now();
         System.out.println("end:"+arrivalDate.format(format));
-        return "hello world!"+i;
+        System.out.println("--------------------*222**");
+        return "hello world!";
     }
 }
