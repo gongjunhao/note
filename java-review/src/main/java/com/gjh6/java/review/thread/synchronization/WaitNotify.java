@@ -1,6 +1,7 @@
 package com.gjh6.java.review.thread.synchronization;
 
 import java.util.concurrent.CountDownLatch;
+import java.util.concurrent.locks.Condition;
 import java.util.concurrent.locks.ReentrantLock;
 
 /**
@@ -57,6 +58,7 @@ class Bank {
     volatile int count;
 
     ReentrantLock lock = new ReentrantLock();
+    //Condition condition = lock.newCondition();
 
     public void add(int money) {
         try {
