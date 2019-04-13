@@ -22,6 +22,10 @@ public class ThreadLocalTest {
         return threadLocal.get();
     }
 
+    public static void removeThreadLocal() {
+        threadLocal.remove();
+    }
+
 
     public static void main(String[] args) {
         ExecutorService executorService = Executors.newCachedThreadPool();
@@ -32,6 +36,7 @@ public class ThreadLocalTest {
                 System.out.println("ThreadName【" + Thread.currentThread().getName()+"】set " + s1);
                 String s = getThreadLocal();
                 System.out.println("ThreadName【" + Thread.currentThread().getName()+"】get " + s);
+                removeThreadLocal();
             });
         }
     }
