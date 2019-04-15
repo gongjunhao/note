@@ -1,9 +1,5 @@
 package com.gjh6.java.review.thread.pcdemo1;
 
-import java.util.ArrayList;
-import java.util.concurrent.locks.Condition;
-import java.util.concurrent.locks.ReentrantLock;
-
 /**
  * Created with IntelliJ IDEA.
  * Description:
