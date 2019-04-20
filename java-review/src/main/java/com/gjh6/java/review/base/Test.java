@@ -12,5 +12,7 @@ public class Test {
         Father son = new Son();
         son = null;
         System.gc();
+        Dog dog = new Dog();
     }
+
 }

@@ -1,0 +1,17 @@
+
+
+
+info:
+  version: 1
+  user: China Joy
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+spring:
+  security:
+    user:
+      name: admin
+      password: admin

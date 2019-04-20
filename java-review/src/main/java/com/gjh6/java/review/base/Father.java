@@ -1,5 +1,7 @@
 package com.gjh6.java.review.base;
 
+import java.util.concurrent.ConcurrentHashMap;
+
 /**
  * Created with IntelliJ IDEA.
  * Description:
@@ -18,5 +20,18 @@ public class Father {
 
     public Father() {
         System.out.println("父类构造函数");
+    }
+
+    protected void getName() throws ClassNotFoundException {
+
+    }
+
+    protected String getName(String name) throws ClassNotFoundException {
+        return "";
+    }
+
+    public static void setName() {
+        ConcurrentHashMap concurrentHashMap = new ConcurrentHashMap();
+        concurrentHashMap.size();
     }
 }

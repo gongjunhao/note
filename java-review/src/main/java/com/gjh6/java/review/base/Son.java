@@ -21,8 +21,19 @@ public class Son extends Father {
     }
 
     @Override
+    protected void getName() throws RuntimeException {
+        try {
+            super.getName();
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+    }
+
+
+    @Override
     protected void finalize() throws Throwable {
         System.out.println("回收！");
         super.finalize();
     }
+
 }
