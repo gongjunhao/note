@@ -1,2 +1,2 @@
 # note
-note something
+collect something
