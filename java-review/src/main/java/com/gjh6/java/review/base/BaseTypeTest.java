@@ -33,6 +33,12 @@ public class BaseTypeTest {
         System.out.println("装箱拆箱");
         int[] is = {1, new Integer(1), 2};
         Integer[] is1 = {1, 2, 4};
+        System.out.println(Integer.MAX_VALUE);
+        System.out.println(Integer.MIN_VALUE);
+        System.out.println(Long.MAX_VALUE);
+        System.out.println(Long.MIN_VALUE);
+        System.out.println(Double.MAX_VALUE);
+        System.out.println(Double.MIN_VALUE);
 
     }
 }

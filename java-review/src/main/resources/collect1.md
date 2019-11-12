@@ -19,6 +19,7 @@
 二、京东金融面试
 
 1、Dubbo超时重试；Dubbo超时时间设置
+https://blog.csdn.net/lkforce/article/details/54380201
 
 2、如何保障请求执行顺序
 

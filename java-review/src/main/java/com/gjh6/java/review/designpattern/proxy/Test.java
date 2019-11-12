@@ -30,6 +30,7 @@ public class Test {
         }
         proxy1.victory();
 
+        //cglib基于ASM编辑字节码生成动态代理对象
         CglibTest cglibTest = new CglibTest(singer);
         Singer singer1 = (Singer)cglibTest.createObject();
         singer1.victory();
