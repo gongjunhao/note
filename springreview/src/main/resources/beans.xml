@@ -4,7 +4,7 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans
         http://www.springframework.org/schema/beans/spring-beans.xsd">
 
-    <bean id="test" name="test" class="com.gjh6.springreview.Test" scope="singleton" >
+    <bean id="test" name="test" class="com.gjh6.springreview.Test" scope="singleton"  init-method="initMethod">
         <!-- collaborators and configuration for this bean go here -->
         <constructor-arg name="username" value="张三" />
         <constructor-arg name="age" value="12" />
@@ -12,4 +12,5 @@
         <property name="age" value="24"></property>
     </bean>
     <!-- more bean definitions go here -->
+    <bean id="beanPostTest" class="com.gjh6.springreview.BeanPostTest"></bean>
 </beans>

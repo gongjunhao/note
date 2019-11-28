@@ -1,6 +1,11 @@
 package com.gjh6.springreview;
 
-public class Test {
+import org.springframework.beans.BeansException;
+import org.springframework.beans.factory.InitializingBean;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.ApplicationContextAware;
+
+public class Test implements ApplicationContextAware, InitializingBean {
     private String username;
     private int age;
     private static Test instance = new Test();
@@ -12,6 +17,10 @@ public class Test {
         System.out.println("username="+username);
         System.out.println("age="+age);
         System.out.println("有参构造函数");
+    }
+
+    public void initMethod() {
+        System.out.println("初始化方法");
     }
 
     public static Test createTest() {
@@ -43,5 +52,16 @@ public class Test {
                 "username='" + username + '\'' +
                 ", age=" + age +
                 '}';
+    }
+
+    @Override
+    public void setApplicationContext(ApplicationContext applicationContext) throws BeansException {
+        System.out.println(applicationContext);
+        System.out.println("获取容器");
+    }
+
+    @Override
+    public void afterPropertiesSet() throws Exception {
+        System.out.println("设置属性后");
     }
 }
